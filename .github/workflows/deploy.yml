@@ -1,0 +1,49 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Instalar dependências do React e Build
+        working-directory: frontend
+        run: |
+          npm install
+          npm run build
+
+      - name: Mover build do React para backend
+        run: |
+          rm -rf backend/public
+          mv frontend/build backend/public
+
+      - name: Instalar dependências do NestJS
+        working-directory: backend
+        run: |
+          npm install
+
+      - name: Deploy na Vercel (Frontend)
+        working-directory: frontend
+        run: |
+          npm install -g vercel
+          vercel deploy --prod --token ${{ secrets.VERCEL_TOKEN_FRONTEND }}
+
+      - name: Deploy na Vercel (Backend)
+        working-directory: backend
+        run: |
+          npm install -g vercel
+          vercel deploy --prod --token ${{ secrets.VERCEL_TOKEN_BACKEND }} \
+            -e DATABASE_URL=${{ secrets.DATABASE_URL }} \
+            
