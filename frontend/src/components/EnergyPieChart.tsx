@@ -48,7 +48,7 @@ export const EnergyPieChart: React.FC<EnergyPieChartProps> = ({ data }) => {
     <Card sx={{ width: '100%', margin: 'auto', mt: 4 }}>
       <CardContent>
         <Typography variant="h5" gutterBottom align="center">
-          Resultados de Energia
+          Resultados Energéticos
         </Typography>
         <Pie data={chartData} options={options} />
       </CardContent>

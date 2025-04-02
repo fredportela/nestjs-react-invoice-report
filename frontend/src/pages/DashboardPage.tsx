@@ -5,6 +5,7 @@ import { FinancialPieChart } from '../components/FinancialPieChart';
 import api from '../services/api';
 import { EnergyComsumed } from '../types/EnergyComsumed';
 import { FinancialResults } from '../types/FinancialResults';
+import EnergySummaryCard from '../components/EnergySummaryCard';
 
 const ChartContainer: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <Grid >
@@ -54,13 +55,18 @@ export const DashboardPage: React.FC = () => {
       <Typography variant="h4" gutterBottom>
         Dashboard
       </Typography>
-      <Grid container spacing={2} justifyContent="center">
-        <Grid >
+      <Grid container justifyContent="center">
+          <EnergySummaryCard 
+            energy={energyData}
+            fincancial={financialData} />
+      </Grid>
+      <Grid container spacing={1} justifyContent="center">
+        <Grid>
           <ChartContainer>
             <EnergyPieChart data={energyData} />
           </ChartContainer>
         </Grid>
-        <Grid >
+        <Grid>
           <ChartContainer>
             <FinancialPieChart data={financialData} />
           </ChartContainer>
