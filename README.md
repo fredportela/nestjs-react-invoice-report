@@ -40,7 +40,7 @@ cd nestjs-react-invoice-report/backend
 
 ### 🔹 2.2 Instalar dependências
 ```bash
-npm install  # ou yarn install
+npm install
 ```
 
 ### 🔹 2.3 Configurar variáveis de ambiente
@@ -52,7 +52,7 @@ DATABASE_URL=postgresql://usuario:senha@localhost:5432/meu_banco
 
 ### 🔹 2.5 Iniciar o servidor
 ```bash
-npm run start:dev
+npm run start
 ```
 ✅ Agora o backend estará rodando em `http://localhost:8080/api`.
 
@@ -67,7 +67,7 @@ cd ../frontend
 
 ### 🔹 3.2 Instalar dependências
 ```bash
-npm install  # ou yarn install
+npm install
 ```
 
 ### 🔹 3.3 Configurar variáveis de ambiente
