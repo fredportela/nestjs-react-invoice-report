@@ -17,7 +17,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
       useFactory: async (configService: ConfigService) => ({
         type: 'postgres',
         url: configService.get<string>('DATABASE_URL'),
-        ssl: configService.get<string>('DATABASE_URL') === 'true' ? { rejectUnauthorized: false } : false,
+        ssl: configService.get<string>('DB_SSL') === 'true' ? { rejectUnauthorized: false } : false,
         synchronize: true,
         autoLoadEntities: true,
         logging: true,

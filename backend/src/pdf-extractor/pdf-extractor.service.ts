@@ -2,23 +2,22 @@ import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as pdfParse from 'pdf-parse';
-import { CustomerService } from 'src/customer/customer.service';
-import { Invoice } from 'src/entities/invoice.entity';
-import * as moment from 'moment';
 import { DataTranformService } from './data-transform.service';
-import { InvoiceService } from 'src/customer/invoice.service';
-import { posix } from 'path';
+import { InvoiceService } from '../customer/invoice.service';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class PdfExtractorService implements OnModuleInit {
   private readonly logger = new Logger(PdfExtractorService.name);
-  private readonly directoryPath = './invoices'; // Caminho da pasta dos PDFs
+  private readonly directoryPath: string;
 
   constructor(
     private readonly dataTranformeService: DataTranformService,
-    private readonly invoiceService: InvoiceService) {
-    // Garantir que o diretório existe
-    fs.ensureDirSync(this.directoryPath);
+    private readonly invoiceService: InvoiceService,
+    private readonly configService: ConfigService) {
+      this.directoryPath = this.configService.get<string>('PATH_FILES', './invoices');
+      // Garantir que o diretório existe
+      fs.ensureDirSync(this.directoryPath);
   }
 
   async onModuleInit() {
