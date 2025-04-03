@@ -1,10 +1,9 @@
 import { Injectable, Logger } from '@nestjs/common';
-import * as moment from 'moment';
-import { Invoice } from 'src/entities/invoice.entity';
-import { CustomerService } from 'src/customer/customer.service';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { SearchInvoiceDto } from './dto/SearchInvoice.dto';
+import * as moment from 'moment';
+import { Invoice } from '../entities/invoice.entity';
+import { CustomerService } from '../customer/customer.service';
 
 @Injectable()
 export class InvoiceService {
