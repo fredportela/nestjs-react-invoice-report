@@ -1,4 +1,4 @@
-import { IsOptional, IsInt, IsString, IsDateString, Min } from 'class-validator';
+import { IsOptional, IsInt, IsDateString, Min } from 'class-validator';
 import { Type } from 'class-transformer';
 
 export class SearchInvoiceDto {

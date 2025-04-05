@@ -32,6 +32,6 @@ import { DashboardModule } from './dashboard/dashboard.module';
     PdfExtractorModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService]
 })
 export class AppModule {}

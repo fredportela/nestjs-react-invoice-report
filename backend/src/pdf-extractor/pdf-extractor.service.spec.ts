@@ -7,8 +7,9 @@ import { PdfExtractorService } from './pdf-extractor.service';
 import { DataTranformService } from './data-transform.service';
 import { InvoiceService } from '../customer/invoice.service';
 import { Invoice } from '../entities/invoice.entity';
-import { CustomerService } from '..//customer/customer.service';
+import { CustomerService } from '../customer/customer.service';
 import { Customer } from '../entities/customer.entity';
+import { UtilsService } from '../utils/utils.service';
 
 const mockRepository = {
   save: jest.fn(),
@@ -31,6 +32,7 @@ describe('PdfExtractorService', () => {
         InvoiceService, 
         ConfigService,
         CustomerService,
+        UtilsService,
         {
           provide: getRepositoryToken(Invoice),
           useValue: mockRepository,

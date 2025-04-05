@@ -7,7 +7,7 @@ Este documento orienta a configuração e execução de um projeto utilizando **
 ## 📂 Estrutura do Projeto
 
 ```
-meu-projeto/
+nestjs-react-invoice-report/
 ├── backend/  # Aplicação NestJS
 ├── frontend/ # Aplicação React
 └── README.md # Este documento
@@ -20,13 +20,33 @@ meu-projeto/
 Antes de iniciar, certifique-se de ter instalado:
 - **Node.js** (versão 18+ recomendada) → [Download Node.js](https://nodejs.org/)
 - **npm** ou **yarn** (instalado junto com o Node.js)
-- **PostgreSQL** (ou outro banco de dados compatível)
+- **PostgreSQL** 
 
 Verifique as versões instaladas:
 ```bash
 node -v
 npm -v
+docker -v
 ```
+
+### 🐘 Instalar PostgreSQL com Docker (opcional)
+Se preferir não instalar o PostgreSQL manualmente, você pode rodá-lo via Docker com o seguinte comando:
+
+```bash
+docker run --name postgresql \
+  -p 5432:5432 \
+  -e POSTGRES_PASSWORD=postgres \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_DB=nestjs_db \
+  -d postgres:17.4
+```
+
+✅ Isso criará um container chamado `postgresql` com:
+- Usuário: `postgres`
+- Senha: `postgres`
+- Banco: `nestjs_db`
+
+> ℹ️ Verifique se a porta `5432` está disponível no seu sistema. Caso já esteja em uso, altere a primeira `5432` do comando para outra porta disponível.
 
 ---
 
@@ -95,7 +115,7 @@ DATABASE_URL=postgresql://usuario:senha@localhost:5432/meu_banco
 ```
 
 ### 🔹 4.2 Gerar o build do frontend e backend
-Na raiz do repositório `meu-projeto/`, execute:
+Na raiz do repositório `nestjs-react-invoice-report/`, execute:
 ```bash
 npm run build:client
 npm run build:server

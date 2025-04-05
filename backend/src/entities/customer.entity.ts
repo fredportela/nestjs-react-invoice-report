@@ -14,9 +14,9 @@ export class Customer {
   name: string;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-  createdAt: Date;
+  createdAt?: Date;
 
   @OneToMany(() => Invoice, (invoice) => invoice.customer)
-  invoices: Invoice[];
+  invoices?: Invoice[];
 
 }

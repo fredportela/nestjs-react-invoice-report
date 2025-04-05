@@ -1,11 +1,12 @@
 import { Controller, Get, Param, NotFoundException, Res } from '@nestjs/common';
-import { CustomerService } from './customer.service';
-import { Customer } from 'src/entities/customer.entity';
-import { InvoiceService } from './invoice.service';
-import { Invoice } from 'src/entities/invoice.entity';
 import { join } from 'path';
 import * as fs from 'fs';
 import { Response } from 'express';
+import { CustomerService } from './customer.service';
+import { Customer } from '../entities/customer.entity';
+import { InvoiceService } from './invoice.service';
+import { Invoice } from '../entities/invoice.entity';
+
 
 @Controller('api/customers')
 export class CustomerController {
