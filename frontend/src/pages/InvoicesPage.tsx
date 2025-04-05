@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Paper, TableContainer, TextField, Typography } from '@mui/material';
+import { Container, TextField, Typography } from '@mui/material';
 
 import { InvoiceTable } from '../components/InvoiceTable';
 import { useInvoices } from '../hooks/useInvoices';
