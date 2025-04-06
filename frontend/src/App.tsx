@@ -13,7 +13,7 @@ const App: React.FC = () => {
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             FATURAS ENERGIA
           </Typography>
-          <Button color="inherit" component={Link} to="/">
+          <Button color="inherit" component={Link} to="/dashboard">
             Dashboard
           </Button>
           <Button color="inherit" component={Link} to="/invoices">
@@ -23,6 +23,7 @@ const App: React.FC = () => {
       </AppBar>
       <Routes>
         <Route path="/" element={<DashboardPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/invoices" element={<InvoicesPage />} />
       </Routes>
     </Router>

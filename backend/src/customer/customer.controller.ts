@@ -8,7 +8,7 @@ import { InvoiceService } from './invoice.service';
 import { Invoice } from '../entities/invoice.entity';
 
 
-@Controller('api/customers')
+@Controller('customers')
 export class CustomerController {
   
   private readonly pdfDirectory = join(__dirname, '..', '..', 'invoices');

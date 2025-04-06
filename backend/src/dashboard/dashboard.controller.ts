@@ -1,9 +1,9 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { CustomerEnergyConsumedDTO } from '../dtos/CustomerEnergyConsumed.dto';
 import { InvoiceService } from 'src/customer/invoice.service';
 import { CustomerFinancialResultsDTO } from '../dtos/CustomerFinancialResults.dto';
 
-@Controller('api/dashboard')
+@Controller('dashboard')
 export class DashboardController {
   constructor(
     private readonly invoiceService: InvoiceService) {}
